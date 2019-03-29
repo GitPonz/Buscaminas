@@ -20,8 +20,7 @@ public class Buscaminas {
         numColum= leer.nextInt();
         minas = leer.nextInt();
         Tablero t = new Tablero(numFilas, numColum);
-        t.insertarMinas(minas);
-        t.imprimirPrueba();
+        
         
     }
     
