@@ -29,13 +29,7 @@ public class Tablero {
                 tabla[i][j] = new Casilla();
             }
         }
-                        
-        insertarMinas(nFilas);
-        calculartablero();
-        imprimirPrueba();
-        
-        
-            
+      
     }
     
     /**
@@ -45,7 +39,7 @@ public class Tablero {
         int vaFila;
         int vaColum;
         this.numMinas= minas;
-        minas=4; // Las minas se pediran en siguientes versiones
+        //minas=4; // Las minas se pediran en siguientes versiones
    
   
         for (int i = 0; i < numMinas; i++) {
@@ -83,6 +77,37 @@ public class Tablero {
             for (int j = 0; j < this.numColumnas; j++) {
                 
                 System.out.print(this.tabla[i][j].imprimirPrueba()+" ");
+            }
+            System.out.print("|"+i);
+            System.out.println("");
+        }
+        
+        System.out.print("  ");
+       
+        for (int i = 0; i < numColumnas; i++) {
+            System.out.print(i+" ");
+        }
+        
+        System.out.println("");
+   
+      
+    }
+    
+        public void imprimirPruebaSol(){
+        System.out.print("  ");
+        for (int i = 0; i < numColumnas; i++) {
+            System.out.print(i+" ");
+        }
+        System.out.println("");
+        
+        //Tablero en sí
+        
+        for (int i = 0; i < this.numFilas; i++) {
+                System.out.print(i+"|");
+                
+            for (int j = 0; j < this.numColumnas; j++) {
+                
+                System.out.print(this.tabla[i][j].imprimirPruebaSol()+" ");
             }
             System.out.print("|"+i);
             System.out.println("");
