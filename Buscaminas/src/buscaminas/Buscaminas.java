@@ -13,13 +13,14 @@ public class Buscaminas {
      */
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in);
-        int numFilas,numColum;
+        int numFilas,numColum,minas;
         
-        System.out.println("Dame filas y columnas");
+        System.out.println("Dame filas, columnas y minas");
         numFilas= leer.nextInt();
         numColum= leer.nextInt();
+        minas = leer.nextInt();
         Tablero t = new Tablero(numFilas, numColum);
-        t.insertarMinas();
+        t.insertarMinas(minas);
         t.imprimirPrueba();
         
     }

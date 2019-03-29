@@ -5,10 +5,10 @@ package buscaminas;
  * @author alumno
  */
 public class Casilla {
-    private Boolean mina;
-    private Boolean blanco;
-    private Boolean bandera;
-    private Boolean visible;
+    private boolean mina;
+    private boolean blanco;
+    private boolean bandera;
+    private boolean visible;
     private int numero;
 
     public Casilla() {
@@ -18,61 +18,60 @@ public class Casilla {
         this.visible = false;
         this.numero = 0;
     }
-    
 
     /**
      * @return the mina
      */
-    public Boolean getMina() {
+    public boolean isMina() {
         return mina;
     }
 
     /**
      * @param mina the mina to set
      */
-    public void setMina(Boolean mina) {
+    public void setMina(boolean mina) {
         this.mina = mina;
     }
 
     /**
      * @return the blanco
      */
-    public Boolean getBlanco() {
+    public boolean isBlanco() {
         return blanco;
     }
 
     /**
      * @param blanco the blanco to set
      */
-    public void setBlanco(Boolean blanco) {
+    public void setBlanco(boolean blanco) {
         this.blanco = blanco;
     }
 
     /**
      * @return the bandera
      */
-    public Boolean getBandera() {
+    public boolean isBandera() {
         return bandera;
     }
 
     /**
      * @param bandera the bandera to set
      */
-    public void setBandera(Boolean bandera) {
+    public void setBandera(boolean bandera) {
         this.bandera = bandera;
     }
 
     /**
      * @return the visible
      */
-    public Boolean getVisible() {
+    public boolean isVisible() {
         return visible;
     }
 
     /**
      * @param visible the visible to set
      */
-    public void setVisible(Boolean visible) {
+    public void setVisible(boolean visible) {
         this.visible = visible;
     }
 
@@ -90,7 +89,24 @@ public class Casilla {
         this.numero = numero;
     }
 
- 
+    
+    public String imprimirPrueba() {
+        String sol="*";
+        
+        if(bandera){
+            return "B";
+        }
+        
+        if(mina){
+            return "M";
+        }
+        
+        if(this.numero>0){
+            sol = ""+numero;
+        }
+        return sol;
+    }
+    
     
     
 }
