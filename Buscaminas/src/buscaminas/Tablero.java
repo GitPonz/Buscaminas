@@ -29,6 +29,12 @@ public class Tablero {
                 tabla[i][j] = new Casilla();
             }
         }
+                        
+        insertarMinas(nFilas);
+        calculartablero();
+        imprimirPrueba();
+        
+        
             
     }
     
@@ -69,8 +75,11 @@ public class Tablero {
         }
         System.out.println("");
         
+        //Tablero en sí
+        
         for (int i = 0; i < this.numFilas; i++) {
                 System.out.print(i+"|");
+                
             for (int j = 0; j < this.numColumnas; j++) {
                 
                 System.out.print(this.tabla[i][j].imprimirPrueba()+" ");
@@ -90,24 +99,42 @@ public class Tablero {
       
     }
     
+    
+    public Casilla getCasilla(int fila, int columna){
+        return this.tabla[fila][columna];
+    }
+    
     public int calcularnumCasillas(int fila, int columna){
-        int num=0;
         int minascerca=0;
-        for (int i = fila-1; i < fila+1; i++) {
-            for (int j = columna-1; j < columna+1; j++) {
+        
+        
+        for (int i = fila-1; i <= fila+1; i++) {
+            
+            if(i>=0 && i<numFilas){
+                
+                for (int j = columna-1; j <= columna+1; j++) {
+                
+                    if((j>=0 && j<numColumnas) && (tabla[i][j].isMina())){                           
+                        minascerca++;    
+                    }           
+                } 
+            }
+
+        }
+        
+        return minascerca;
+    }
+    
+    public void calculartablero(){
+        for (int i = 0; i < numFilas; i++) {
+            for (int j = 0; j < numColumnas; j++) {
                 if(tabla[i][j].isMina()){
                     
                 }else{
-                    if(i==0 || j==0){
-                        if(tabla[i][j].isMina()){
-                            minascerca++;
-                        }
-                    }
+                    tabla[i][j].setNumero(calcularnumCasillas(i,j));
                 }
             }
         }
-        
-        return num;
     }
     
  
