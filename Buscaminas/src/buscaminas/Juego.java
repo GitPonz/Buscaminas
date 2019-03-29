@@ -10,4 +10,8 @@ public class Juego {
     private int numFilas;
     private int numColumnas;
     
+    public void configurarjuego(){
+        
+    }
+    
 }
