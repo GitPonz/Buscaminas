@@ -93,6 +93,10 @@ public class Casilla {
     public String imprimirPrueba() {
         String sol="*";
         
+        if(!this.isVisible()){
+            return sol;
+        }
+        
         if(bandera){
             return "B";
         }
@@ -104,6 +108,26 @@ public class Casilla {
         if(this.numero>0){
             sol = ""+numero;
         }
+        
+        return sol;
+    }
+    
+        public String imprimirPruebaSol() {
+        String sol="*";
+
+        
+        if(bandera){
+            return "B";
+        }
+        
+        if(mina){
+            return "M";
+        }
+        
+        if(this.numero>0){
+            sol = ""+numero;
+        }
+        
         return sol;
     }
     

@@ -39,7 +39,7 @@ public class Tablero {
         int vaFila;
         int vaColum;
         this.numMinas= minas;
-        //minas=4; // Las minas se pediran en siguientes versiones
+        
    
   
         for (int i = 0; i < numMinas; i++) {
@@ -52,7 +52,7 @@ public class Tablero {
               
             if(tabla[vaFila][vaColum].isMina()){
                 i--;                
-                }else{
+             }else{
                     tabla[vaFila][vaColum].setMina(true); 
                     tabla[vaFila][vaColum].setBlanco(false);
                 }
@@ -125,7 +125,7 @@ public class Tablero {
     }
     
     
-    public Casilla getCasilla(int fila, int columna){
+    public Casilla getCasilla(int fila, int columna){ 
         return this.tabla[fila][columna];
     }
     
@@ -162,6 +162,54 @@ public class Tablero {
         }
     }
     
+    public boolean meterCasilla(int filas, int columnas){
+        boolean fin=true;
+        if(tabla[filas][columnas].isMina()){
+            fin=false;
+        }
+        tabla[filas][columnas].setVisible(true);
+        
+        return fin;
+    }
+    
+    public void meterBandera(int filas, int columnas){
+        boolean fin=true;
+        if(tabla[filas][columnas].isBandera()){
+            System.out.println("La bandera ya esta puesta");
+        }else{
+            tabla[filas][columnas].setBandera(true);
+            tabla[filas][columnas].setVisible(true);
+        }
  
+    }
+ 
+       public void quitarBandera(int filas, int columnas){
+        boolean fin=true;
+        if(tabla[filas][columnas].isBandera()){
+            
+            tabla[filas][columnas].setBandera(false);
+            tabla[filas][columnas].setVisible(false);
+            }
+       }
+       
+       //A veces gana porque si
+       public boolean comprobarVictoria(){
+           boolean ganado=true;
+           for (int i = 0; i < numFilas; i++) {
+               for (int j = 0; j < numColumnas; j++) {
+                   if(tabla[i][j].isMina()){
+                       
+                   }else{
+                       if(tabla[i][j].isVisible()){
+                           
+                       }else{
+                          ganado=false; 
+                          break;
+                       }
+                   }
+               }
+           }
+           return ganado;
+       }
 }
 
